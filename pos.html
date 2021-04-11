@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Array Exercise: Point of Sales Modules</title>
+    <title>Array Exercise: Point of Sales Sub-Module</title>
     <style>
         body {
             padding: 0;
@@ -40,7 +40,7 @@
 
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script>
-        //PREREQUISITE KNOWLEDGE: Variables, Arrays, For Loop, If Condition.
+        //PREREQUISITE KNOWLEDGE: Variables, Arrays, For Loop, If Condition, Functions.
         // VARIABLE: is a container that hold values that could vary. 
             // E.g: 
                 // let x = 5; x is a variable that holds the value 5 for now. 
@@ -62,11 +62,14 @@
             // and compute a balance, surplus or even
 
         let storeItems = ['Milk', 'Milo', 'Sugar', 'Custard', 'Soap', 'Ariel'];
-        let storeItemLen = storeItems.length;// counts the number items the store sells
         let storeItemsPrice = [2000, 1780, 650, 2000, 250, 700];
-        
+
+        // counts the number items the store sells
+        let storeItemLen = storeItems.length;
+
         function computeSales(customerItems, cash){
-            let customerItemsLen = customerItems.length; //counts the number of items the customer selected
+            //counts the number of items the customer selected
+            let customerItemsLen = customerItems.length; 
             let a; //declare a variable for looping customer items 
             let b;//declare a variable for looping store items
             let totalCost = 0;//declare and initialize a variable for computing total cost of cutomer's items
@@ -76,15 +79,14 @@
                 let eachCustomerItem = customerItems[a];//each customer's item
                 //loop thru the store item array
                 for(b = 0; b < storeItemLen; b++){
-                    let eachStoreItem = storeItems[b];//each store item                    
+                    let eachStoreItem = storeItems[b];//each store item 
                     if(eachCustomerItem == eachStoreItem){//if a customers item is found in the store items arr
-                        let thisStoreItem = storeItemsPrice[b];//get the price formthe price array
-                        totalCost += thisStoreItem;//add price to total cost
+                        let thisStoreItemPrice = storeItemsPrice[b];//get the price from the price array
+                        totalCost += thisStoreItemPrice;//add price to total cost
                     }
                 }
             }
 
-            
             if(cash > totalCost){//if customers cash is more than the totalcost
                 let res = cash - totalCost;
                 $('.display').html('Your balance is <b>N'+res+'</b>');
@@ -95,11 +97,10 @@
                 $('.display').html('Thanks for patronizing us.');
             }
         }
-
         let customerItemsArr = ['Milk', 'Sugar', 'Ariel'];
-        let money = 3000;
+        let money = 3350;
         
-        computeSales(customerItemsArr, money)
+        computeSales(customerItemsArr, money);
     </script>
 </body>
 </html>
