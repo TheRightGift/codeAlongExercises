@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grocery Store: by Chigozie Okoye</title>
+    <link rel="stylesheet" href="./css/groceryStore.css">
+    <link rel="shortcut icon" href="./images/groceryStore/favicon.jpg" type="image/x-icon">
+    
+</head>
+<body>
+    <div class="container">
+        <h1 class="centerTxt">Grocery Stores</h1>
+        <div class="imgHolder">
+            
+        </div>
+    </div>
+    <div class="modalShadow hide">
+        <div class="modal">
+            <h2 class="centerTxt">Checkout</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <th>TOTAL</th>
+                        <th></th>
+                        <th class="totalCost"></th>
+                    </tr> -->
+                </tbody>
+            </table>
+            <p>
+                <a href="#" id="closeModal">Close</a>
+            </p>
+        </div>
+    </div>
+    
+    <footer class="centerTxt hideOnSmall">
+        <button id="largeViewCheckOut">Checkout</button>
+    </footer>
+    <button id="checkOut" class="hideOnLarge">Checkout</button>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script>
+        customerItemArr = []
+        
+        var storeData = [
+            ['Milk 900g', 'milk.jpg', 2500],
+            ['Milo 990g', 'milo.jpg', 3200],
+            ['Sugar', 'sugar2.jpg', 930],
+            ['Bleach', 'bleach2.jpg', 3600],
+            ['Butter', 'butter.jpg', 990],
+            ['Meat', 'meat2.jpg', 1800],
+            ['Carton of Tomato Paste', 'tomato1.jpg', 25900],
+            ['Mega Soap pack', 'soap2.jpg', 2600],
+            ['Carton of Soda', 'soda1.jpg', 6000],
+            ['Detergent', 'detergent1.jpg', 2350],
+            ['Bread', 'bread1.jpg', 550],
+            ['Cupcake', 'cupcake1.jpg', 300],
+            ['Carton of Biscuit', 'biscuits1.jpg', 3200],
+            ['Onions', 'onion3.jpg', 1200],
+            ['Face-Masks', 'facemask1.jpg', 1800],
+            ['Diaper', 'diaper1.jpg', 3500],
+        ]
+        
+        function init(){
+            storeData.forEach(function(item, index){
+                // construct content from item
+                var itemName = item[0];
+                var itemImg = item[1];
+                var itemPrice = item[2];
+                var unitItem = '<div class="l3"><img src="./images/groceryStore/'+itemImg+'" alt=""><div class="addToCart"><span class="itemName">'+itemName+'</span><br> <span class="price">N'+itemPrice+'</span><button class="right addToCart" data-name="'+itemName+'" data-price="'+itemPrice+'" data-img="'+itemImg+'">Add to Cart</button>';
+                $('.imgHolder').append(unitItem);
+            });
+        }
+        init();
+
+        $('.addToCart button').click(function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+
+            var thisPrdtName = $(this).attr('data-name');
+            var thisPrdtImg = $(this).attr('data-img');
+            var thisPrdtPrice = $(this).attr('data-price');
+            var tempArr = [];
+            pushItemToArray(thisPrdtName, tempArr);
+            pushItemToArray(thisPrdtImg, tempArr);
+            pushItemToArray(thisPrdtPrice, tempArr);
+
+            pushItemToArray(tempArr, customerItemArr);
+            $(this).removeClass('addToCart').text('Added').prop('disabled', true);
+            
+        });
+
+        $('#checkOut, #largeViewCheckOut').click(function(e){
+            e.preventDefault();
+            if(customerItemArr.length > 0){
+                $(this).prop('disabled', true);
+                var totalCost = 0;
+                customerItemArr.forEach(function(item, index){
+                    var sn = index + 1;
+                    var qty = '';    //UNFINISHED
+                    var tableRowContent = '<tr><td>'+sn+'</td><td>'+item[0]+'</td><td>'+item[2]+'</td></tr>';
+                    $('.modal table tbody').append(tableRowContent);
+                    totalCost += parseInt(item[2]);
+                });
+                $('.modal table tbody').append('<tr><th>TOTAL</th><th></th><th class="totalCost"></th></tr>');
+                $('.totalCost').text(totalCost);
+                // $('.container').addClass('shadow');
+                $('.modalShadow').removeClass('hide');
+            } else {
+                alert('Please add a product to cart before proceeding to checkout');
+            }
+        });
+
+        $('#closeModal').click(function(){
+            $('.modal table tbody').html('<tr><th>TOTAL</th><th></th><th class="totalCost"></th></tr>');
+            $('#checkOut, #largeViewCheckOut').prop('disabled', false);
+            // $('.container').removeClass('shadow');
+            $('.modalShadow').addClass('hide');
+        });
+
+        function pushItemToArray(item, array){
+            array.push(item);
+        }
+
+        // cashItem = ['milk', 'milo', 'bleach', 'detergent'];
+        // var storeItemlen = storeItem.length
+        // var cashItemlen = cashItem.length
+        // var a;
+        // var b;
+
+        // //loop through the cashitem array
+        // for(a=0; a<cashItemlen; a++){
+        //     var thisCashItem = cashItem[a];
+
+        //     //loop through the shopitem array
+        //     for(b=0; b<storeItemlen; b++){
+        //         var thisShopItem = storeItem[b];
+
+        //         //select the cashitems from the shopitem in the store
+        //         if(thisShopItem == thisCashItem){
+        //             //add the price of the item to the total cost
+        //             totalCost += storeItemPrice[b];
+        //         }
+        //     }
+        // }
+        // //calculate the balance of the customer
+        // function checkBal(){
+        //     cash -= totalCost
+        // }
+        // checkBal();
+
+        // //display the balance of the customer
+        // console.log(totalCost, cash);
+        
+        // if(totalCost < initialCash){
+        //     document.getElementById('d1').innerHTML += "</br>" + "<p>Current Balance: " + cash + "USD</br>" + "Proceed to Checkout to collect balance and purchased items.</p>";
+        // }else if(totalCost > initialCash){
+        //     document.getElementById('d1').innerHTML += "</br>" + "<p>Current Balance: " + cash + "USD</br>" + "Insufficient funds.</p>";
+        // }else{
+        //     document.getElementById('d1').innerHTML += "</br>" + "<p>Thank you for your Patronage. You may now proceed to Checkout for your purchased items.</p>";
+        // } 
+
+    </script>
+</body>
+</html>
