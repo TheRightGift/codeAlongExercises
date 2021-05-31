@@ -1,0 +1,114 @@
+:root{
+    --ozChat:#f88e28;
+    --primary:#03A9F4;
+    --lightPrimary:#b9e0f1;
+    --secondary:#29B6F6;
+    --tertiary:#ebf0f5;
+}
+::-webkit-scrollbar {
+    width: 5px;
+} /* this targets the default scrollbar (compulsory) */
+::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 7px rgba(0,0,0,0.8);*/
+    background-color: var(--primary);
+    /*border-radius: 8px;*/
+} /* the new scrollbar will have a flat appearance with the set background color */
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 100px var(--primary);
+    background-color: var(--primary); 
+    /*border-radius: 8px;*/
+} /* this will style the thumb, ignoring the track */
+
+::-webkit-scrollbar-button {
+    height: 0;
+    /* background-color: rgba(0,151,0,1);*/
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+
+::-webkit-scrollbar-corner {
+    background-color: black;
+} /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+::-webkit-scrollbar-track-piece {
+    background-color: rgba(255, 255, 255, 1);	
+}
+::-webkit-scrollbar-button:horizontal {
+    width: 5px;
+/* Select the down or left scroll button when it's being hovered by the mouse */
+}
+@font-face {
+    font-family: poppinsRegular;
+    src: url('../fonts/Poppins-Regular.ttf');
+  }
+
+body{
+    background-color: var(--tertiary);
+    margin: 0;
+    padding: 0;
+    
+}
+.modal {
+    background-color: var(--ozChat);
+    font-family: poppinsRegular;
+}
+.active {
+    display: block;
+}
+.question{
+    display: none;
+}
+.centre {
+    text-align: center;
+}
+#homeSubj .btn {
+    color: black;
+    background-color: #fff;
+}
+.blur{
+    filter: blur(8px);
+}
+#qandaContent {
+    background-color: #fff;
+    box-shadow: 2px 2px 5px #b9bcbe;
+    padding: 2vh 0;
+}
+h3 .btn-small {
+    margin-top: 1.5vh;
+    margin-left: 2vh;
+}
+h3 .btn-small#submit {
+    margin-right: 2vh;
+}
+.coverPage {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 9000;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.coverPageInstruction {
+    background-color: aliceblue;
+    padding: 15px;
+    border-radius: 50%;
+    text-align: center;
+    width: 12vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation-name: animateCoverInstruction;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+.coverPageInstruction h3{
+    margin: 0;
+}
+@keyframes animateCoverInstruction {
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.1, 1.1);}
+  }

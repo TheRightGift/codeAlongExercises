@@ -1,0 +1,23 @@
+{
+    "Subjects" : [
+        {"id": 1, "subj" : "Chemistry"},
+        {"id" : 2, "subj" : "Economics"}
+    ],
+    "Topics" : [
+        {"id" : 1, "topic" : "Treatment of Water for Town Supply", "subjId" : 1},
+        {"id" : 2, "topic" : "Acids, Bases and Salts", "subjId" : 1},
+        {"id" : 3, "topic" : "Agricultural Policies in Nigeria", "subjId" : 2}
+    ],
+    "Questions" : [
+        {"id" : 1, "ques" : "In the purification of town water supply, alum is used principally to?", "optA": "Kill bacteria", "optB": "Control the pH of water", "optC": "Improve the taste of the water", "optD": "Coagulate small particles of mud", "ans" : "D", "topicId" : 1},
+        {"id" : 2, "ques" : "Calcium Hydroxide is added in the treatment of town water supply to?", "optA": "Kill bacteria in the water", "optB": "Facilitate coagulation of organic particles", "optC": "Facilitate sedimentation", "optD": "Improve the taste of the water", "ans" : "D", "topicId" : 1},
+        {"id" : 3, "ques" : "Water for town supply is chlorinated to make it free from?", "optA": "Bad odour", "optB": "Temporary hardness", "optC": "Permanent hardness", "optD": "Bacteria", "ans" : "D", "topicId" : 1},
+        {"id" : 4, "ques" : "Potassium tetraoxomanganate(VII) is often added to impure water to?", "optA": "Reduce organic impurities", "optB": "Reduce inorganic impurities", "optC": "Destroy bacteria and algae", "optD": "Remove permanent hardness", "ans" : "C", "topicId" : 1},
+        {"id" : 5, "ques" : "The chemical used for coagulation in water purification?", "optA": "Copper tetraoxosulphate(VI)", "optB": "Sodium tetraoxosulphate(VI)", "optC": "Aluminium tetraoxosulphate(VI)", "optD": "Calcium tetraoxosulphate(VI)", "ans" : "C", "topicId" : 1},
+        {"id" : 6, "ques" : "", "optA": "", "optB": "", "optC": "", "optD": "", "ans" : "D", "topicId" : 3},
+        {"id" : 7, "ques" : "", "optA": "", "optB": "", "optC": "", "optD": "", "ans" : "D", "topicId" : 3},
+        {"id" : 8, "ques" : "", "optA": "", "optB": "", "optC": "", "optD": "", "ans" : "D", "topicId" : 3},
+        {"id" : 9, "ques" : "", "optA": "", "optB": "", "optC": "", "optD": "", "ans" : "D", "topicId" : 3},
+        {"id" : 10, "ques" : "", "optA": "", "optB": "", "optC": "", "optD": "", "ans" : "D", "topicId" : 3}
+    ]
+}
