@@ -1,0 +1,20 @@
+{
+    "storeData" : [
+        {"item": "Milk 900g", "itemPic": "milk.jpg", "itemPrice" : 2500},
+        {"item": "Milo 990g", "itemPic": "milo.jpg", "itemPrice" :3200},
+        {"item": "Sugar", "itemPic": "sugar2.jpg", "itemPrice" :930},
+        {"item": "Bleach", "itemPic": "bleach2.jpg", "itemPrice" :3600},
+        {"item": "Butter", "itemPic": "butter.jpg", "itemPrice" :990},
+        {"item": "Meat", "itemPic": "meat2.jpg", "itemPrice" :1800},
+        {"item": "Carton of Tomato Paste", "itemPic": "tomato1.jpg", "itemPrice" :25900},
+        {"item": "Mega Soap pack", "itemPic": "soap2.jpg", "itemPrice" :2600},
+        {"item": "Carton of Soda", "itemPic": "soda1.jpg", "itemPrice" :6000},
+        {"item": "Detergent", "itemPic": "detergent1.jpg", "itemPrice" :2350},
+        {"item": "Bread", "itemPic": "bread1.jpg", "itemPrice" :550},
+        {"item": "Cupcake", "itemPic": "cupcake1.jpg", "itemPrice" :300},
+        {"item": "Carton of Biscuit", "itemPic": "biscuits1.jpg", "itemPrice" :3200},
+        {"item": "Onions", "itemPic": "onion3.jpg", "itemPrice" :1200},
+        {"item": "Face-Masks", "itemPic": "facemask1.jpg", "itemPrice" :1800},
+        {"item": "Diaper", "itemPic": "diaper1.jpg", "itemPrice" :3500}
+    ]
+}

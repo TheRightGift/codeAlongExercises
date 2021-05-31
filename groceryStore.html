@@ -47,38 +47,32 @@
     <button id="checkOut" class="hideOnLarge">Checkout</button>
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script>
-        customerItemArr = []
+        customerItemArr = [];
+
+        $.ajax({
+            type: 'GET',
+            url : './data/storeData.json',
+            success: function(data){
+                let storeData = data.storeData;
+                function init(){
+                    storeData.forEach(function(item, index){
+                        
+                        // construct content from item
+                        var itemName = item.item;
+                        var itemImg = item.itemPic;
+                        var itemPrice = item.itemPrice;
+                        var unitItem = '<div class="l3"><img src="./images/groceryStore/'+itemImg+'" alt=""><div class="addToCart"><span class="itemName">'+itemName+'</span><br> <span class="price">N'+itemPrice+'</span><button class="right addToCart" data-name="'+itemName+'" data-price="'+itemPrice+'" data-img="'+itemImg+'">Add to Cart</button>';
+                        $('.imgHolder').append(unitItem);
+                    });
+                }
+                init();
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
         
-        var storeData = [
-            ['Milk 900g', 'milk.jpg', 2500],
-            ['Milo 990g', 'milo.jpg', 3200],
-            ['Sugar', 'sugar2.jpg', 930],
-            ['Bleach', 'bleach2.jpg', 3600],
-            ['Butter', 'butter.jpg', 990],
-            ['Meat', 'meat2.jpg', 1800],
-            ['Carton of Tomato Paste', 'tomato1.jpg', 25900],
-            ['Mega Soap pack', 'soap2.jpg', 2600],
-            ['Carton of Soda', 'soda1.jpg', 6000],
-            ['Detergent', 'detergent1.jpg', 2350],
-            ['Bread', 'bread1.jpg', 550],
-            ['Cupcake', 'cupcake1.jpg', 300],
-            ['Carton of Biscuit', 'biscuits1.jpg', 3200],
-            ['Onions', 'onion3.jpg', 1200],
-            ['Face-Masks', 'facemask1.jpg', 1800],
-            ['Diaper', 'diaper1.jpg', 3500],
-        ]
         
-        function init(){
-            storeData.forEach(function(item, index){
-                // construct content from item
-                var itemName = item[0];
-                var itemImg = item[1];
-                var itemPrice = item[2];
-                var unitItem = '<div class="l3"><img src="./images/groceryStore/'+itemImg+'" alt=""><div class="addToCart"><span class="itemName">'+itemName+'</span><br> <span class="price">N'+itemPrice+'</span><button class="right addToCart" data-name="'+itemName+'" data-price="'+itemPrice+'" data-img="'+itemImg+'">Add to Cart</button>';
-                $('.imgHolder').append(unitItem);
-            });
-        }
-        init();
 
         $('.addToCart button').click(function(e){
             e.preventDefault();
@@ -129,6 +123,11 @@
         function pushItemToArray(item, array){
             array.push(item);
         }
+
+
+
+
+
 
         // cashItem = ['milk', 'milo', 'bleach', 'detergent'];
         // var storeItemlen = storeItem.length
