@@ -35,7 +35,7 @@
 /* Select the down or left scroll button when it's being hovered by the mouse */
 }
 @font-face {
-    font-family: poppinsRegular;
+    font-family: chigogPop;
     src: url('../fonts/Poppins-Regular.ttf');
   }
 
@@ -47,7 +47,7 @@ body{
 }
 .modal {
     background-color: var(--ozChat);
-    font-family: poppinsRegular;
+    font-family: chigogPop;
 }
 .active {
     display: block;
